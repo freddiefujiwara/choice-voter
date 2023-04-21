@@ -4,20 +4,20 @@
  */
 class VotingSystem {
   /**
-  * Create a new VotingSystem instance.
-  * @param {Voter} voter - The voter object.
-  * @param {Option[]} options - The list of option objects.
-  */
+    * Create a new VotingSystem instance.
+    * @param {Voter} voter - The voter object.
+    * @param {Option[]} options - The list of option objects.
+    */
   constructor(voter, options) {
     this.voter = voter;
     this.options = options;
   }
 
   /**
-   * Input votes for an option.
-   * @param {Option} option - The option object.
-   * @param {string} vote - The vote value, either 'Pass', 'Fail', or empty string.
-   */
+    * Input votes for an option.
+    * @param {Option} option - The option object.
+    * @param {string} vote - The vote value, either 'Pass', 'Fail', or empty string.
+    */
   inputVotes(option, vote) {
     this.voter.votes[option.name] = vote === 'Pass' ? 'Pass' : 'Fail';
   }
@@ -43,10 +43,10 @@ class VotingSystem {
   }
 
   /**
-    * Parse votes from a file content string.
-    * @param {string} fileContent - The file content string.
-    * @returns {Object<string, string>} - Option names, Pass/Fail values.
-    */
+      * Parse votes from a file content string.
+      * @param {string} fileContent - The file content string.
+      * @returns {Object<string, string>} - Option names, Pass/Fail values.
+      */
   static parseVotes(fileContent) {
     return fileContent.split('\n').filter((line) => line).reduce((acc, line) => {
       const [optionName, vote] = line.replace(/\s+/g, '\t').split('\t');
