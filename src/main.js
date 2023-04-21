@@ -3,6 +3,10 @@ const Voter = require('./Voter');
 const { Option, OptionList } = require('./Option');
 const VotingSystem = require('./VotingSystem');
 
+/**
+ * Main function to run the voting system.
+ * Reads option and vote data from files, creates a schedule based on the voter's votes and option priorities, and outputs the result.
+ */
 async function main() {
     const optionFile = process.argv[2] || 'options.tsv';
     const voteFile = process.argv[3] || 'votes.tsv';
