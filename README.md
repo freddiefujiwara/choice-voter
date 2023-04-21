@@ -11,13 +11,13 @@ Allows for varying degrees of randomness in the schedule creation.
 ## Installation
 Clone this repository:
 ```bash
-git clone https://github.com/your-repo/voting-system.git
+git clone https://github.com/freddiefujiwara/choice-voter
 ```
 
 Change to the cloned directory:
 
 ```bash
-cd voting-system
+cd choice-voter
 ```
 
 Install the required dependencies:
@@ -43,7 +43,7 @@ Option3   Pass
 
 Run the voting system using the following command:
 ```bash
-node main.js [options.tsv] [votes.tsv] [VoterName]
+node main.js [options.tsv] [votes.tsv] [VoterName] [randomness(0-50)]
 ```
 
 Replace [options.tsv], [votes.tsv], and [VoterName] with your own file paths and voter name, if necessary. If not specified, the default file paths are options.tsv and votes.tsv, and the default voter name is "Anonymous".
