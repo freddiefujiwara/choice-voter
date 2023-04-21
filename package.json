@@ -4,7 +4,7 @@
   "description": "A simple and flexible voting system for JavaScript that can be used for a wide variety of applications, from selecting candidates for an election to prioritizing tasks in a project.",
   "main": "src/main.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint __tests__ src",
     "jsdoc": "jsdoc -r src/ -d docs -c jsdoc.json"
   },

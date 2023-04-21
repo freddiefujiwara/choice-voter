@@ -33,6 +33,7 @@ jobs:
     - name: Deploy to GitHub Pages
       if: github.event_name == 'push' && matrix.node-version == '16.x'
       run: |
+        mv coverage/lcov-report docs/coverage
         npm install -g gh-pages
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
