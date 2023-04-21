@@ -30,7 +30,7 @@ describe('VotingSystem', () => {
         votingSystem.inputVotes(frontend, 'Pass');
         votingSystem.inputVotes(backend, 'Pass');
         votingSystem.inputVotes(devops, '');
-        const schedule = votingSystem.createSchedule();
+        const schedule = votingSystem.createSchedule(0);
         expect(schedule.voter).toBe(voter);
         expect(schedule.optionOrder).toEqual([frontend, backend]);
     });
