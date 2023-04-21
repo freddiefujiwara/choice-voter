@@ -31,12 +31,12 @@ jobs:
     - name: Generate JSDoc
       run: npm run jsdoc
     - name: Deploy to GitHub Pages
-       if: github.event_name == 'push' && matrix.node-version == '16.x'
-       run: |
-          npm install -g gh-pages
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git remote set-url origin https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-          gh-pages -d out
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      if: github.event_name == 'push' && matrix.node-version == '16.x'
+      run: |
+        npm install -g gh-pages
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+        git remote set-url origin https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        gh-pages -d docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
