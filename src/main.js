@@ -32,8 +32,8 @@ async function main() {
   const schedule = votingSystem.createSchedule(randomness);
   console.log(`Voter: ${schedule.voter.name}`);
   console.log('Option order:');
-  schedule.optionOrder.forEach((option) => {
-    console.log(`{index + 1}. ${option.name}`);
+  schedule.optionOrder.forEach((option, index) => {
+    console.log(`${index + 1}. ${option.name}`);
   });
 }
 
