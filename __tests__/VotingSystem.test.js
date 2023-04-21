@@ -25,14 +25,25 @@ describe('VotingSystem', () => {
         expect(voter.votes).toEqual({ Frontend: 'Fail', Backend: 'Fail', DevOps: 'Fail' });
     });
 
-    test('should create a schedule based on the voter\'s votes and option priorities', () => {
+    test('should create a schedule with varying degrees of randomness', () => {
         const votingSystem = new VotingSystem(voter, options.options);
         votingSystem.inputVotes(frontend, 'Pass');
         votingSystem.inputVotes(backend, 'Pass');
         votingSystem.inputVotes(devops, '');
-        const schedule = votingSystem.createSchedule(0);
-        expect(schedule.voter).toBe(voter);
-        expect(schedule.optionOrder).toEqual([frontend, backend]);
+
+        const scheduleNoRandom = votingSystem.createSchedule(0);
+        expect(scheduleNoRandom.voter).toBe(voter);
+        expect(scheduleNoRandom.optionOrder).toEqual([frontend, backend]);
+
+        const scheduleWithRandom = votingSystem.createSchedule(25);
+        expect(scheduleWithRandom.voter).toBe(voter);
+
+        const scheduleMaxRandom = votingSystem.createSchedule(50);
+        expect(scheduleMaxRandom.voter).toBe(voter);
+
+        const scheduleOverMaxRandom = votingSystem.createSchedule(75);
+        expect(scheduleOverMaxRandom.voter).toBe(voter);
+        expect(scheduleOverMaxRandom.optionOrder.length).toBe(2);
     });
 });
 
