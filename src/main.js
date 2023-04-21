@@ -1,8 +1,7 @@
 const fs = require('fs');
-const { Voter } = require('./Voter');
+const Voter = require('./Voter');
 const { Option, OptionList } = require('./Option');
 const VotingSystem = require('./VotingSystem');
-const parseVotes = require('./parseVotes');
 
 async function main() {
     const optionFile = process.argv[2] || 'options.tsv';
@@ -15,7 +14,7 @@ async function main() {
     const options = new OptionList(OptionList.parseOptions(optionContent));
 
     const voteContent = await fs.promises.readFile(voteFile, 'utf-8');
-    const votes = parseVotes(voteContent, options);
+    const votes = VotingSystem.parseVotes(voteContent, options);
 
     const votingSystem = new VotingSystem(voter, options.options);
     for (const option of options.options) {

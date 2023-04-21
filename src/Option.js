@@ -19,7 +19,7 @@ class OptionList {
             .split("\n")
             .filter((line) => line)
             .map((line) => {
-                const [name, priorityStr] = line.split("\t");
+                const [name, priorityStr] = line.replace(/\s+/g, "\t").split("\t");
                 return new Option(name, parseInt(priorityStr, 10));
             });
         return options;
